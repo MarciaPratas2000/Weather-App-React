@@ -1,0 +1,29 @@
+.ForecastWeather .forecast-weather {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .ForecastWeather .forecast-weather {
+      flex-wrap: wrap; /* Allow items to wrap to a new line on smaller screens */
+      justify-content: center; /* Center items horizontally on medium screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ForecastWeather .forecast-weather {
+      flex-direction: column; /* Stack items vertically on small screens */
+      align-items: center; /* Center items vertically on small screens */
+      margin-top: 10px; /* Reduce top margin for small screens */
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .ForecastWeather .forecast-weather {
+      margin-top: 5px; /* Further reduce top margin for extra small screens */
+    }
+  }
+  

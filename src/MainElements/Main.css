@@ -1,0 +1,10 @@
+.Main .mainElement {
+    display: block;
+    padding: 36px 0;
+  }
+  
+.Main .current-weather {
+display: flex;
+justify-content: space-between;
+}
+  

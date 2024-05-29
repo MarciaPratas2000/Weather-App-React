@@ -1,0 +1,38 @@
+
+.ForecastColumn .column {
+  margin: 5px;
+  padding: 5px 2px;
+  border: 1.3px solid rgba(74, 110, 122, 0.3);
+  border-radius: 8px;
+  text-align: center;
+  width: calc(100% - 10px); /* Adjust width for responsiveness */
+}
+
+.ForecastColumn .column:hover {
+  background-color: #effbfe;
+  border-radius: 10px;
+}
+
+.ForecastColumn .forecast-day {
+  font-size: 16px;
+  color: #5b8998;
+  padding: 8px;
+  font-weight: 500;
+}
+
+.ForecastColumn .forecast-min-max-temp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ForecastColumn .forecast-emoji {
+  width: 15%;
+  text-align: center;
+}
+
+.current-details strong,
+.max-temperature,
+.min-temperature {
+  color: red;
+  padding: 5px 10px;
+}
