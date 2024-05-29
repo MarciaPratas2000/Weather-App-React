@@ -1,27 +1,39 @@
-import React, { useState} from "react";
-
+import React, { useState } from "react";
 
 export default function Weather(props) {
   const [data, setData] = useState(props.data);
   const [loaded, setLoaded] = useState(true);
+  const [weather, setWeather] = useState(null);
+
+  const weatherData = {
+    city: data.name,
+    temperature: data.main.temp,
+    feelsLike: data.main.feels_like,
+    minTemperature: data.main.temp_min,
+    maxTemperature: data.main.temp_max,
+    description: data.weather[0].description,
+    humidity: data.main.humidity,
+    windSpeed: data.wind.speed,
+    iconUrl: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+  };
 
   if (loaded && data) {
     return (
       <div>
         <p>
-          City: <strong>{data.name}</strong>
+          City: <strong>{weatherData.city}</strong>
         </p>
-        <p>Temperature: {data.main.temp} ºC</p>
-        <p>Feels like: {data.main.feels_like} ºC</p>
-        <p>Min temperature: {data.main.temp_min} ºC</p>
-        <p>Max temperature: {data.main.temp_max} ºC</p>
-        <p>Description: {data.weather[0].description}</p>
-        <p>Humidity: {data.main.humidity}%</p>
-        <p>Wind: {data.wind.speed} m/s</p>
+        <p>Temperature: {weatherData.temperature} ºC</p>
+        <p>Feels like: {weatherData.feelsLike} ºC</p>
+        <p>Min temperature: {weatherData.minTemperature} ºC</p>
+        <p>Max temperature: {weatherData.maxTemperature} ºC</p>
+        <p>Description: {weatherData.description}</p>
+        <p>Humidity: {weatherData.humidity}%</p>
+        <p>Wind: {weatherData.windSpeed} m/s</p>
         <p>
           Icon:{" "}
           <img
-            src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+            src={weatherData.iconUrl}
             alt="Weather icon"
           />
         </p>
@@ -30,7 +42,7 @@ export default function Weather(props) {
   }
 
   if (props.error) {
-    return <p>Error: {props.error.message} . Please Refresh the page or retry.</p>;
+    return <p>Error: {props.error.message}. Please Refresh the page or retry.</p>;
   } else {
     return <p>Loading...</p>;
   }
