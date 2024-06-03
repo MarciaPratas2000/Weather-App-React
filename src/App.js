@@ -1,14 +1,14 @@
-import Header from "./HeaderElements/Header.js";
-import Main from "./MainElements/Main.js";
+import Header from "./FormHandleElements/Header.js";
 import Footer from "./FooterElements/Footer.js";
 import './App.css';
 
+
+//MainWeather is included in CityForm, Which is included in Header
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Main />
       <Footer />
     </div>
   );

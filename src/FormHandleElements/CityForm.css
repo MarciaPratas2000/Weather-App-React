@@ -1,7 +1,8 @@
-.CityForm {
-    text-align: center;
-  }
-.CityForm .search-button {
+.CityForm form{
+  text-align: center;
+}
+
+.CityForm #city-form .search-button {
   margin-left: 5px;
   font-size: 16px;
   background-color: #aec6cf;
@@ -13,12 +14,12 @@
   font-family: "PT Mono";
 }
 
-.CityForm .search-button:hover {
+.CityForm #city-form .search-button:hover {
   background-color: #36576b;
   cursor: grab;
 }
 
-.CityForm .search-input {
+.CityForm #city-form .search-input {
   background-color: #e8f6fa;
   border: none;
   color: rgba(39, 33, 66, 0.4);
@@ -28,34 +29,35 @@
   border-radius: 6px;
   font-family: "PT Mono";
 }
+
 @media (max-width: 768px) {
-  .Form .search-input {
+  .CityForm #city-form .search-input {
     width: 60%; /* Adjust input width for medium screens */
   }
 
-  .Form .search-button {
+  .CityForm #city-form .search-button {
     font-size: 14px; /* Adjust button font size for medium screens */
     padding: 1rem 1.25rem; /* Adjust button padding for medium screens */
   }
 }
 
 @media (max-width: 480px) {
-  .Form .search-input {
+  .CityForm #city-form .search-input {
     width: 50%; /* Adjust input width for small screens */
   }
 
-  .Form .search-button {
+  .CityForm #city-form .search-button {
     font-size: 12px; /* Adjust button font size for small screens */
     padding: 0.75rem 1rem; /* Adjust button padding for small screens */
   }
 }
 
 @media (max-width: 320px) {
-  .Form .search-input {
+  .CityForm #city-form .search-input {
     width: 100%; /* Full width for extra small screens */
   }
 
-  .Form .search-button {
+  .CityForm #city-form .search-button {
     width: 100%; /* Full width for extra small screens */
     font-size: 12px; /* Adjust button font size for extra small screens */
     padding: 0.75rem; /* Adjust button padding for extra small screens */
