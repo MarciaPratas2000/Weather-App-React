@@ -20,7 +20,7 @@ export default function Footer() {
           </a>{" "}
           and
           <a
-            href="https://weather-app-marcia-react.netlify.app/"
+            href="https://master--weather-app-mp.netlify.app/"
             target="_blank"
             rel="noreferrer" 
           > {" "}
