@@ -1,16 +1,29 @@
 .TempConversionComponent {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.TempConversionComponent .tempSet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px; /* Add margin for spacing between temperature and buttons */
 }
 
 .TempConversionComponent button {
-  margin: 2px;
+  margin: 5px;
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: 4vw; /* Responsive font size based on viewport width */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  height: 20%;
+  height: auto;
+  width: 60%;
+  max-width: 150px;
 }
 
 .TempConversionComponent button.selected {
@@ -18,12 +31,48 @@
   color: white;
 }
 
-.TempConversionComponent .tempSet {
-  display: flex;
-  justify-content: space-between;
+.TempConversionComponent .current-temperature-value {
+  font-size: 15vw; /* Responsive font size based on viewport width */
+  font-weight: bold;
+  text-align: center;
 }
 
-.TempConversionComponent .current-temperature-value {
-  font-size: 80px;
-  font-weight: bold;
+/* Media queries for different screen sizes */
+
+@media (min-width: 600px) {
+  .TempConversionComponent {
+    flex-direction: row; /* Change flex direction for larger screens */
+    align-items: flex-start; /* Align items at the start of the flex container */
+  }
+
+  .TempConversionComponent .tempSet {
+    margin-top: 0; /* Remove top margin for buttons */
+    margin-right: 20px; /* Increase margin for spacing */
+  }
+
+  .TempConversionComponent button {
+    font-size: 18px;
+    max-width: 200px;
+  }
+
+  .TempConversionComponent .current-temperature-value {
+    font-size: 6vw; /* Responsive font size based on viewport width */
+  }
+}
+
+@media (min-width: 900px) {
+  .TempConversionComponent .current-temperature-value {
+    font-size: 4vw; /* Responsive font size based on viewport width */
+  }
+}
+
+@media (min-width: 1200px) {
+  .TempConversionComponent button {
+    font-size: 20px;
+    max-width: 250px;
+  }
+
+  .TempConversionComponent .current-temperature-value {
+    font-size: 3vw; /* Responsive font size based on viewport width */
+  }
 }

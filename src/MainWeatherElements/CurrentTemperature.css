@@ -1,9 +1,33 @@
+.CurrentTemperature{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+}
+
 .CurrentTemperature .current-temperature {
-    display: flex;
     align-items: center;
-  }
+   }
   
   .CurrentTemperature .current-temperature-icon {
-    width: 88px;
-    height: 88px;
+    width: 5vw; /* Responsive width based on viewport width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 88px; /* Limit maximum width */
+align-items:center ;    
+  }
+  
+  /* Media query for larger screens */
+  @media (min-width: 768px) {
+    .CurrentTemperature .current-temperature-icon {
+      width: 88px; /* Set fixed width for larger screens */
+    }
+
+    .CurrentTemperature .current-temperature-icon {
+      width: 10vw; /* Responsive width based on viewport width */
+      height: auto; /* Maintain aspect ratio */
+      max-width: 88px; /* Limit maximum width */
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
   }

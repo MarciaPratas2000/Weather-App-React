@@ -8,7 +8,6 @@ export default function MainUpdate(props) {
   // Use useState directly and then destructure the array it returns
   // Every time the form is submitted, the data state will be reset to null
   const [data, setData] = useState(null);
-  console.log(props.data);
 
   const [weatherInfo, setWeatherInfo] = useState({
     city: "Lisbon",
