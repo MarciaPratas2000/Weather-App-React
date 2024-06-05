@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import  "./UnitComponent.css"; 
+
 
 export default function UnitComponent() {
   const [unit, setUnit] = useState("ºC");
@@ -9,8 +11,9 @@ export default function UnitComponent() {
 
   return (
     <div className="UnitComponent">
-      <button onClick={handleUnitChange("ºC")} className={unit === "ºC" ? "selected" : ""}>ºC</button>
-      <button onClick={handleUnitChange("ºF")} className={unit === "ºF" ? "selected" : ""}>ºF</button>
+      <button onClick={() => handleUnitChange("ºC")} className={unit === "ºC" ? "selected" : ""}>ºC</button>
+      <button onClick={() => handleUnitChange("ºF")} className={unit === "ºF" ? "selected" : ""}>ºF</button>
     </div>
   );
 }
+
