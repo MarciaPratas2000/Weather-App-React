@@ -8,12 +8,14 @@ export default function MainUpdate(props) {
   // Use useState directly and then destructure the array it returns
   // Every time the form is submitted, the data state will be reset to null
   const [data, setData] = useState(null);
+  console.log(props.data);
 
   const [weatherInfo, setWeatherInfo] = useState({
     city: "Lisbon",
     description: "few clouds",
     humidity: "22%",
     wind: "7.72Km/h",
+    date:"Saturday 11:44"
   });
 
   const [temperature, setTemperature] = useState({
@@ -31,6 +33,7 @@ export default function MainUpdate(props) {
         description: props.data.weather[0]?.description || "Unknown",
         humidity: `${props.data.main?.humidity}%` || "Unknown",
         wind: `${props.data.wind?.speed} Km/h` || "Unknown",
+        date: new Date(props.data.dt * 1000) // Convert UNIX timestamp to Date
       });
 
       setTemperature({
