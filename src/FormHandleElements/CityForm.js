@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import MainWeather from "../MainWeatherElements/MainUpdate.js";
-import Main from "../MainWeatherElements/Main.js";
 import "./CityForm.css";
 
 export default function CityForm() {
@@ -27,12 +26,14 @@ export default function CityForm() {
       .then(handleResponse)
       .catch((error) => {
         setError(error);
+        setLoaded(true);  // Set loaded to true even on error to show error message
       });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     setLoaded(false);
+    setError(null);  // Clear any previous errors
     if (city) {
       fetchWeather();
     }
@@ -45,12 +46,16 @@ export default function CityForm() {
           type="text"
           placeholder="Type a City"
           onChange={updateCityname}
+          value={city} // Control the input value
           className="search-input"
-          // Add value to control the input
         />
-        <input type="submit" value="Submit"  className="search-button"/>
+        <input type="submit" value="Submit" className="search-button" />
       </form>
-      {loaded ? <MainWeather data={response?.data} error={error} /> : <Main />}
+      {loaded ? (
+        <MainWeather data={response?.data} error={error} />
+      ) : (
+        <MainWeather data={null} error={null} />
+      )}
     </div>
   );
 }

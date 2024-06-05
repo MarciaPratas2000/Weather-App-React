@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CurrentTemperature from "./CurrentTemperature.js";
 import CurrentWeatherInfo from "./CurrentWeatherInfo.js";
-import "./Main.css";
+import "./MainUpdate.css";
 import ForecastWeather from "./ForecastWeather.js";
 
 export default function MainUpdate(props) {
@@ -23,7 +23,8 @@ export default function MainUpdate(props) {
 
   // Update state when props.data changes
   // And React runtime errors prevent: makes sure that props.data is not null anymore, as it is in first state even if not null in its essence.
-  if (props.data !== data) {
+  // Ensure props.data is not null before comparing to the current state to prevent errors during subsequent renders - because props.data is always initialized in null
+  if (props.data && props.data !== data)  {
     setData(props.data);
       setWeatherInfo({
         city: props.data.name || "Unknown",
