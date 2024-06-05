@@ -1,6 +1,6 @@
 import React from "react";
 import "./CurrentTemperature.css";
-import UnitComponent from "./TempConversionComponent";
+import TempConversionComponent from "./TempConversionComponent";
 
 export default function CurrentTemperature(props) {
   return (
@@ -11,7 +11,7 @@ export default function CurrentTemperature(props) {
           alt="Weather-icon"
         />
       </span>
-      <UnitComponent temperature={props.temperature} />
+      <TempConversionComponent temperature={props.temperature} />
     </div>
   );
 }

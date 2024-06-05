@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import MainWeather from "../MainWeatherElements/MainUpdate.js";
 import "./CityForm.css";
+import MainUpdate from "../MainWeatherElements/MainUpdate.js";
 
 export default function CityForm() {
   const [city, setCity] = useState("");
@@ -52,9 +52,9 @@ export default function CityForm() {
         <input type="submit" value="Submit" className="search-button" />
       </form>
       {loaded ? (
-        <MainWeather data={response?.data} error={error} />
+        <MainUpdate data={response?.data} error={error}  />
       ) : (
-        <MainWeather data={null} error={null} />
+        <MainUpdate data={null} error={null}  />
       )}
     </div>
   );

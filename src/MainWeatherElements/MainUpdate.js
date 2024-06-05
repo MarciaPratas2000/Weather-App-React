@@ -47,7 +47,7 @@ export default function MainUpdate(props) {
         <main className="mainElement">
           <div className="current-weather">
             <CurrentWeatherInfo {...weatherInfo} />
-            <CurrentTemperature {...temperature} />
+            <CurrentTemperature {...temperature}  />
           </div>
           <ForecastWeather />
         </main>
