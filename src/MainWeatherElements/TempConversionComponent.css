@@ -1,0 +1,29 @@
+.TempConversionComponent {
+  display: flex;
+  justify-content: center;
+}
+
+.TempConversionComponent button {
+  margin: 2px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 20%;
+}
+
+.TempConversionComponent button.selected {
+  background-color: #3c6794; /* Blue color for selected button */
+  color: white;
+}
+
+.TempConversionComponent .tempSet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.TempConversionComponent .current-temperature-value {
+  font-size: 80px;
+  font-weight: bold;
+}

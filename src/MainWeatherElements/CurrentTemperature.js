@@ -1,20 +1,17 @@
 import React from "react";
 import "./CurrentTemperature.css";
-import UnitComponent from "./UnitComponent"; // Correct import statement
+import UnitComponent from "./TempConversionComponent";
 
 export default function CurrentTemperature(props) {
   return (
     <div className="CurrentTemperature">
-      <span className="current-temperature-icon" >
+      <span className="current-temperature-icon">
         <img
-          src={props.iconUrl} // Fixed typo: 'scr' should be 'src'
+          src={props.iconUrl} 
           alt="Weather-icon"
         />
       </span>
-      <div className="tempSet">
-        <div className="current-temperature-value">{props.temperature}</div>
-        <div className="current-temperature-unit"><UnitComponent /></div>
-      </div>
+      <UnitComponent temperature={props.temperature} />
     </div>
   );
 }
