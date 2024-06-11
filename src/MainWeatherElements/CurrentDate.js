@@ -3,7 +3,7 @@ import React from "react";
 export default function CurrentDate(props) {
 // Ensure props.date is a Date object to prevent runtime errors
   if (!(props.date instanceof Date)) {
-    return <div>Saturday 11:44</div>;
+    return <div>Loading ... </div>;
   }
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

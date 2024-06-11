@@ -4,39 +4,46 @@ import "./CityForm.css";
 import MainUpdate from "../MainWeatherElements/MainUpdate.js";
 
 export default function CityForm() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Lisbon");
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
+
+  const apiKey = "a969311cfcbb4a83dfad2cf7478397f9";
 
   function updateCityname(event) {
     setCity(event.target.value);
   }
 
   function handleResponse(response) {
-    setResponse(response);
+    setResponse(response.data);
     setLoaded(true);
   }
 
-  function fetchWeather() {
-    const apiKey = "a969311cfcbb4a83dfad2cf7478397f9";
+  function fetchWeather(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
     axios
       .get(apiUrl)
       .then(handleResponse)
       .catch((error) => {
         setError(error);
-        setLoaded(true);  // Set loaded to true even on error to show error message
+        setLoaded(true);
       });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     setLoaded(false);
-    setError(null);  // Clear any previous errors
+    setError(null);
     if (city) {
-      fetchWeather();
+      fetchWeather(city);
     }
+  }
+
+  // Fetch initial weather data for "Lisbon"
+  if (!loaded && !response) {
+    fetchWeather("Lisbon");
   }
 
   return (
@@ -46,15 +53,15 @@ export default function CityForm() {
           type="text"
           placeholder="Type a City"
           onChange={updateCityname}
-          value={city} // Control the input value
+          value={city}
           className="search-input"
         />
         <input type="submit" value="Submit" className="search-button" />
       </form>
       {loaded ? (
-        <MainUpdate data={response?.data} error={error}  />
+        <MainUpdate data={response} error={error} />
       ) : (
-        <MainUpdate data={null} error={null}  />
+        <div className="warning">Loading...Please try to type a city and submit. </div>
       )}
     </div>
   );

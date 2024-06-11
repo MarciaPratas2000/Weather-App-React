@@ -1,4 +1,4 @@
-.CityForm form{
+.CityForm form {
   text-align: center;
 }
 
@@ -28,6 +28,14 @@
   width: 75%;
   border-radius: 6px;
   font-family: "PT Mono";
+}
+
+.CityForm .warning {
+  font-family: "PT Mono";
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  margin: 5%;
+  text-align: center;
 }
 
 @media (max-width: 768px) {

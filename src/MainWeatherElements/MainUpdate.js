@@ -10,16 +10,16 @@ export default function MainUpdate(props) {
   const [data, setData] = useState(null);
 
   const [weatherInfo, setWeatherInfo] = useState({
-    city: "Lisbon",
-    description: "few clouds",
-    humidity: "22%",
-    wind: "7.72Km/h",
-    date:"Saturday 11:44"
+    city: "",
+    description: "",
+    humidity: "",
+    wind: "",
+    date:""
   });
 
   const [temperature, setTemperature] = useState({
-    iconUrl: "https://example.com/icons/sunny.png",
-    temperature: "18",
+    iconUrl: "",
+    temperature: "",
   });
 
   // Update state when props.data changes
