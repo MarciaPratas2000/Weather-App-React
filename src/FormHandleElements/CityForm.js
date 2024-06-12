@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./CityForm.css";
-import MainUpdate from "../MainWeatherElements/MainUpdate.js";
+import CurrentWeatherUpdate from "../MainWeatherElements/CurrentWeatherUpdate.js";
+import ForecastColumn from "../MainWeatherElements/ForecastColumn.js";
 
 export default function CityForm() {
   const [city, setCity] = useState("Lisbon");
@@ -34,35 +34,31 @@ export default function CityForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setLoaded(false);
-    setError(null);
-    if (city) {
-      fetchWeather(city);
-    }
+    setCity(inputValue); // Update city only after form submission
+    setInputValue(""); // Clear input value after submission
   }
 
-  // Fetch initial weather data for "Lisbon"
-  if (!loaded && !response) {
-    fetchWeather("Lisbon");
+  function handleInputChange(event) {
+    setInputValue(event.target.value);
   }
 
   return (
     <div className="CityForm">
-      <form id="city-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Type a City"
-          onChange={updateCityname}
-          value={city}
-          className="search-input"
-        />
-        <input type="submit" value="Submit" className="search-button" />
-      </form>
-      {loaded ? (
-        <MainUpdate data={response} error={error} />
-      ) : (
-        <div className="warning">Loading...Please try to type a city and submit. </div>
-      )}
+      {/* Form for inputting new city */}
+        <form id="city-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Type a City"
+            value={inputValue}
+            className="search-input"
+            onChange={handleInputChange}
+          />
+          <input type="submit" value="Submit" className="search-button" />
+        </form>
+       <div>
+        <CurrentWeatherUpdate city={city} />
+        <ForecastColumn city={city} />
+      </div>
     </div>
   );
 }

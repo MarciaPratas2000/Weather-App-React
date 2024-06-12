@@ -2,9 +2,10 @@ import React from "react";
 import "./ForecastColumn.css";
 
 export default function ForecastColumn(props) {
+  
   return (
     <div className="ForecastColumn">
-      <div className="column">
+      <div className="column" key={props.day}>
         <div className="forecast-day">{props.day}</div>
         <div className="forecast-emoji">
           <img src={props.img} alt={props.alt} />
@@ -17,5 +18,5 @@ export default function ForecastColumn(props) {
         </div>
       </div>
     </div>
-  );
-}
+  );}
+

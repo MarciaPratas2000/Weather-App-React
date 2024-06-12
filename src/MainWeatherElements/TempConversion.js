@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./TempConversionComponent.css";
+import "./TempConversion.css";
 
 export default function TempConversionComponent(props) {
   const [unit, setUnit] = useState("ºC"); // Initialize unit state with an empty string
