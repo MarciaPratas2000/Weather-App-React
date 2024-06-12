@@ -13,7 +13,8 @@
     width: 5vw; /* Responsive width based on viewport width */
     height: auto; /* Maintain aspect ratio */
     max-width: 88px; /* Limit maximum width */
-align-items:center ;    
+    align-items:center ;
+    margin-top: 15px;
   }
   
   /* Media query for larger screens */
